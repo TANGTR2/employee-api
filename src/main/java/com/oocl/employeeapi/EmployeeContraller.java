@@ -28,8 +28,8 @@ public class EmployeeContraller {
     }
 
     @PutMapping(path = "/employees/{id}")
-    public ArrayList<Employee> putEmployeeById(@PathVariable String id){
-        return employeeService.updateEmployeeById(id);
+    public ArrayList<Employee> putEmployeeById(@RequestBody Employee employee){
+        return employeeService.updateEmployeeById(employee);
     }
 
     @GetMapping(path = "/employees/{id}")

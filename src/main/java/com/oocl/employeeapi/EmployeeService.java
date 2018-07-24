@@ -28,21 +28,20 @@ public class EmployeeService {
     }
 
     public ArrayList<Employee> deleteEmployeeById(String id) {
-        for(Employee employee:list){
-            if(employee.getId().equals(id))
-                list.remove(employee);
+        for(Employee e:list){
+            if(e.getId().equals(id)){
+                list.remove(e);
+            }
         }
         return list;
     }
 
-    public ArrayList<Employee> updateEmployeeById(String id) {
-        for(Employee employee:list){
-            if(employee.getId().equals(id)){
-                Employee newEmployee = new Employee(employee.getId(),
-                        employee.getName(),
-                        employee.getAge(),
-                        employee.getGender());
-                list.add(newEmployee);
+    public ArrayList<Employee> updateEmployeeById(Employee employee) {
+        for(Employee e:list){
+            if(e.getId().equals(employee.getId())){
+                e.setName(employee.getName());
+                e.setAge(employee.getAge());
+                e.setGender(employee.getGender());
             }
         }
         return list;
