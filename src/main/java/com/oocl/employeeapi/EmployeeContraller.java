@@ -1,10 +1,7 @@
 package com.oocl.employeeapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -17,12 +14,16 @@ public class EmployeeContraller {
 
     @GetMapping("/employees")
     public ArrayList<Employee> getAllEmployees(){
-        return employeeService.getAllEmployeeList();
+        return employeeService.getList();
     }
 
     @PostMapping(path = "/employees/post")
     public ArrayList<Employee> postEmployee(@RequestBody Employee employee) {
         return employeeService.postEmployee(employee);
     }
-    
+
+    @DeleteMapping(path = "/employees/{id}")
+    public  ArrayList<Employee> deleteEmployeeById(@PathVariable String id){
+        return employeeService.deleteEmployeeById(id);
+    }
 }
