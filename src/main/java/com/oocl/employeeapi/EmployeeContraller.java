@@ -26,4 +26,14 @@ public class EmployeeContraller {
     public  ArrayList<Employee> deleteEmployeeById(@PathVariable String id){
         return employeeService.deleteEmployeeById(id);
     }
+
+    @PutMapping(path = "/employees/{id}")
+    public ArrayList<Employee> putEmployeeById(@PathVariable String id){
+        return employeeService.updateEmployeeById(id);
+    }
+
+    @GetMapping(path = "/employees/{id}")
+    public Employee getEmployee(@PathVariable String id){
+        return employeeService.findEmployeeById(id);
+    }
 }

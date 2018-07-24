@@ -34,4 +34,27 @@ public class EmployeeService {
         }
         return list;
     }
+
+    public ArrayList<Employee> updateEmployeeById(String id) {
+        for(Employee employee:list){
+            if(employee.getId().equals(id)){
+                Employee newEmployee = new Employee(employee.getId(),
+                        employee.getName(),
+                        employee.getAge(),
+                        employee.getGender());
+                list.add(newEmployee);
+            }
+        }
+        return list;
+    }
+
+    public Employee findEmployeeById(String id) {
+        Employee find = new Employee();
+        for(Employee employee:list){
+            if(employee.getId().equals(id)){
+                find = employee;
+            }
+        }
+        return find;
+    }
 }
