@@ -1,5 +1,8 @@
 package com.oocl.employeeapi;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Employee {
     private String id;
     private String name;
@@ -11,6 +14,10 @@ public class Employee {
         this.name = name;
         this.age =age;
         this.gender = gender;
+    }
+
+    public Employee(){
+
     }
 
     public String getId() {

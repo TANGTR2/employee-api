@@ -13,10 +13,16 @@ public class EmployeeContraller {
 
     @Autowired
     public EmployeeService employeeService;
+    public Employee employee;
 
     @GetMapping("/employees")
     public ArrayList<Employee> getAllEmployees(){
         return employeeService.getAllEmployeeList();
     }
 
+    @PostMapping(path = "/employees/post")
+    public ArrayList<Employee> postEmployee(@RequestBody Employee employee) {
+        return employeeService.postEmployee(employee);
+    }
+    
 }
